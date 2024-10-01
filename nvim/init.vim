@@ -29,8 +29,8 @@ set laststatus=2
 nnoremap <silent> <C-F> :NERDTreeToggle<CR>
 nnoremap <F2> :set wrap!<CR>
 
-" Iniciar o vim-plug
-call plug#begin('~/.vim/plugged')
+" Iniciar o vim-plug (certifique-se de que o caminho esteja correto para o Neovim)
+call plug#begin('~/.config/nvim/plugged')
 
     " Pacotes essenciais
     Plug 'tpope/vim-sensible'
@@ -95,3 +95,4 @@ nnoremap <leader>k  <Plug>(coc-jump-type-definition)
 nnoremap <leader>gd <Plug>(coc-goto-definition)
 nnoremap <leader>gi <Plug>(coc-goto-implementation)
 nnoremap <leader>gr <Plug>(coc-goto-references)
+
