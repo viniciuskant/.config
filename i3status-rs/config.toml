@@ -8,11 +8,11 @@ block = "custom"
 command = "echo `uname` `uname -r | tr - . | cut -d. -f1-2`"
 interval = "once"
 
-[[block]]
-block = "custom"
-command = "xrandr --listmonitors | tail -n+2 | tr '+' ' ' | cut -d' ' -f 4 | tr '\n' ' '"
-interval = "once"
-signal = 4
+#[[block]]
+#block = "custom"
+#command = "xrandr --listmonitors | tail -n+2 | tr '+' ' ' | cut -d' ' -f 4 | tr '\n' ' '"
+#interval = "once"
+#signal = 4
 
 [[block]]
 block = "custom"
@@ -47,7 +47,7 @@ alert_unit = "GB"
 interval = 20
 warning = 20.0
 alert = 10.0
-format = " $icon /: $available.eng(w:2) "
+format = " $icon root: $available.eng(w:2) "
 
 [[block]]
 block = "memory"

@@ -55,7 +55,13 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 1000-
 # bindsym F7 exec setxkbmap -model abnt2 -layout br -model abnt2
 
 client.focused          #7a00eb #ab70ea #000000 #7a00eb
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 2
+
+#gaps
+gaps inner 4
+gaps outer 2
+
+smart_gaps on
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
