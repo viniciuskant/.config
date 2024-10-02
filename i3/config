@@ -23,7 +23,7 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id feh --bg-fill /home/kant/.config/i3/lula.jpg
+exec --no-startup-id feh --bg-fill /home/kant/.config/i3/cubo_derretido-1.jpg
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -54,8 +54,8 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 1000-
 
 # bindsym F7 exec setxkbmap -model abnt2 -layout br -model abnt2
 
-client.focused          #7a00eb #ab70ea #000000 #7a00eb
-for_window [class=".*"] border pixel 2
+client.focused          #ed7918 #ed7918 #ed7918 #ed7918
+for_window [class=".*"] border pixel 4
 
 #gaps
 gaps inner 4
@@ -222,6 +222,29 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+mode "move" {
+
+        # move focused window
+
+        bindsym j move left
+        bindsym k move down
+        bindsym l move up
+        bindsym semicolon move right
+        
+
+        bindsym Left move left
+        bindsym Down move down
+        bindsym Up move up
+        bindsym Right move right
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+m mode "default"
+
+}
+
+bindsym $mod+m mode "move" 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
