@@ -29,6 +29,13 @@ set laststatus=2
 nnoremap <silent> <C-F> :NERDTreeToggle<CR>
 nnoremap <F2> :set wrap!<CR>
 
+" Usa Zathura como visualizador de PDFs
+let g:vimtex_view_method = 'zathura'
+
+" Compilação automática de LaTeX
+let g:vimtex_compiler_method = 'latexmk'
+
+
 " Iniciar o vim-plug
 call plug#begin('~/.vim/plugged')
 
@@ -69,6 +76,10 @@ call plug#begin('~/.vim/plugged')
 
     " FZF
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+
 
 call plug#end()
 

@@ -23,7 +23,7 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id feh --bg-fill /home/kant/.config/i3/cubo_derretido-1.jpg
+exec --no-startup-id feh --bg-fill /home/kant/.config/i3/lula-comunista.png
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -198,6 +198,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec i3-msg exit
+
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -223,8 +225,6 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
 mode "move" {
 
         # move focused window
@@ -246,7 +246,22 @@ mode "move" {
 
 }
 
+mode  "1: ea614 | 2: em423 | 3: mc558 | 4: mc732 | 5: ms211"{
+    bindsym 1 exec --no-startup-id nautilus "/home/kant/unicamp/semestres/semestre_6/ea614/" && mode "default"
+    bindsym 2 exec --no-startup-id nautilus "/home/kant/unicamp/semestres/semestre_6/em423/" && mode "default"
+    bindsym 3 exec mode "deafult" &&  --no-startup-id nautilus "/home/kant/unicamp/semestres/semestre_6/mc558/" && mode "default"
+    bindsym 4 exec --no-startup-id nautilus "/home/kant/unicamp/semestres/semestre_6/mc732/" && mode "default"
+    bindsym 5 exec --no-startup-id nautilus "/home/kant/unicamp/semestres/semestre_6/ms211/" && mode "default"
+    
+    bindsym Escape mode "default"
+}
+
+
+
+bindsym $mod+r mode "resize"
 bindsym $mod+m mode "move" 
+bindsym $mod+u mode "1: ea614 | 2: em423 | 3: mc558 | 4: mc732 | 5: ms211"
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -292,7 +307,7 @@ workspace 9 output $monitor_2
 workspace 10 output $monitor_1
 
 exec_always picom &
-
+exec_always --no-startup-id ~/.myScripts/i3_pasta_unicamp.sh
 
 # Envia a janela atual para o scratchpad
 bindsym $mod+Shift+minus move scratchpad

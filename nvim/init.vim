@@ -29,6 +29,8 @@ set laststatus=2
 nnoremap <silent> <C-F> :NERDTreeToggle<CR>
 nnoremap <F2> :set wrap!<CR>
 
+let g:vimtex_compiler_method = 'latexmk'
+
 " Iniciar o vim-plug (certifique-se de que o caminho esteja correto para o Neovim)
 call plug#begin('~/.config/nvim/plugged')
 
