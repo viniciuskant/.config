@@ -26,6 +26,7 @@ exec --no-startup-id gsettings set org.gnome.desktop.interface icon-theme "your-
 exec_always picom &
 exec_always --no-startup-id ~/.myScripts/i3_pasta_unicamp.sh
 exec pkill -o i3bar
+exec_always --no-startup-id autotiling
 
 # Bindings
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
