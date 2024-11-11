@@ -1,4 +1,11 @@
-" Ativar a numeração das linhas
+if executable('alacritty')
+    let &shell = 'alacritty'
+    let &shellcmdflag = '-e'
+    let &shellquote = ''
+    let &shellxquote = ''
+endif
+
+
 set number
 
 " Habilitar a indentação automática

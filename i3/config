@@ -23,19 +23,16 @@ font pango:monospace 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id feh --bg-fill /home/kant/.config/i3/lula-comunista.png
+exec --no-startup-id feh --bg-fill /home/kant/.config/i3/cubo_derretido-1.jpg
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -90,7 +87,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+m exec poweroff
 
 #block
-bindsym $mod+Shift+x exec i3lock
+bindsym $mod+Shift+x exec i3lock -u --nofork -i ~/.config/i3/cubo_derretido-1.jpg
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
@@ -100,6 +97,11 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
+bindsym $mod+c exec code
+bindsym $mod+Shift+s exec --no-startup-id gnome-system-monitor
+bindsym $mod+Shift+n exec --no-startup-id nautilus
+bindsym $mod+Shift+p exec --no-startup-id GTK_THEME=Adwaita:dark evince
+bindsym Ctrl+Alt+c exec code
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -256,15 +258,12 @@ mode  "1: ea614 | 2: em423 | 3: mc558 | 4: mc732 | 5: ms211"{
     bindsym Escape mode "default"
 }
 
-
-
 bindsym $mod+r mode "resize"
 bindsym $mod+m mode "move" 
 bindsym $mod+u mode "1: ea614 | 2: em423 | 3: mc558 | 4: mc732 | 5: ms211"
 
+bindsym $mod+Shift+b exec --no-startup-id "/home/kant/.myScripts/i3bar.sh"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
         status_command i3status-rs /home/kant/.config/i3status-rs/config.toml 
         # status_command i3status
@@ -282,7 +281,7 @@ bar {
         binding_mode       #2f343a #900000 #ffffff
     }
 }
-
+exec pkill -o i3bar
 # Define o número de telas no sistema
 set $n_screens 2
 
@@ -308,6 +307,9 @@ workspace 10 output $monitor_1
 
 exec_always picom &
 exec_always --no-startup-id ~/.myScripts/i3_pasta_unicamp.sh
+exec --no-startup-id gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
+exec --no-startup-id gsettings set org.gnome.desktop.interface icon-theme "your-icon-theme"
+
 
 # Envia a janela atual para o scratchpad
 bindsym $mod+Shift+minus move scratchpad

@@ -19,6 +19,8 @@ set smartcase
 " Habilitar a sintaxe de cores
 syntax on
 
+set cursorline
+
 " Mostrar a linha e coluna atuais
 set ruler
 
@@ -36,7 +38,7 @@ call plug#begin('~/.config/nvim/plugged')
 
     " Pacotes essenciais
     Plug 'tpope/vim-sensible'
-    Plug 'scrooloose/nerdtree'
+    " Plug 'scrooloose/nerdtree'
     Plug 'vim-scripts/vim-syntax-x86'
     Plug 'rusty1s/vim-verilog'
 
