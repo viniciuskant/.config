@@ -19,7 +19,7 @@ font pango:monospace 8
 
 # Executions
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id feh --bg-fill /home/kant/.config/i3/cubo_derretido-1.jpg
+exec --no-startup-id feh --bg-fill /home/kant/.config/i3/lula-comunista-2.png
 exec --no-startup-id xautolock -time 60 -locker "i3lock" -detectsleep
 exec --no-startup-id gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
 exec --no-startup-id gsettings set org.gnome.desktop.interface icon-theme "your-icon-theme"
@@ -27,6 +27,7 @@ exec_always picom &
 exec_always --no-startup-id ~/.myScripts/i3_pasta_unicamp.sh
 exec pkill -o i3bar
 exec_always --no-startup-id autotiling
+
 
 # Bindings
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -38,10 +39,10 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 1000-
 bindsym $mod+Return exec alacritty
 bindsym Print exec maim -s | xclip -selection clipboard -t image/png
 bindsym $mod+Shift+q kill
-bindsym $mod+Shift+m exec poweroff
+bindsym $mod+Shift+m exec shutdown now
 bindsym $mod+Shift+x exec i3lock -u --nofork -i ~/.config/i3/cubo_derretido-1.jpg
-bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+c exec code
+bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+Shift+Return exec code
 bindsym $mod+Shift+s exec --no-startup-id gnome-system-monitor
 bindsym $mod+Shift+n exec --no-startup-id nautilus
 bindsym $mod+Shift+p exec --no-startup-id GTK_THEME=Adwaita:dark evince
@@ -142,7 +143,8 @@ mode "1: ea614 | 2: em423 | 3: mc558 | 4: mc732 | 5: ms211" {
 }
 
 # Client and window settings
-client.focused          #ed7918 #ed7918 #ed7918 #ed7918
+#client.focused          #ed7918 #ed7918 #ed7918 #ed7918
+client.focused          #2daaf8 #2daaf8 #2daaf8 #2daaf8
 for_window [class=".*"] border pixel 4
 gaps inner 4
 gaps outer 2
@@ -153,6 +155,7 @@ floating_modifier $mod
 bar {
         status_command i3status-rs /home/kant/.config/i3status-rs/config.toml
         height 28
+        font pango: monospace 10
         colors {
                 background #000000
                 statusline #ffffff
