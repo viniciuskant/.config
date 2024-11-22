@@ -1,12 +1,7 @@
-if executable('alacritty')
-    let &shell = 'alacritty'
-    let &shellcmdflag = '-e'
-    let &shellquote = ''
-    let &shellxquote = ''
-endif
-
-
 set number
+
+" Verificação ortográfica apenas para latex
+autocmd FileType tex setlocal spell spelllang=pt
 
 " Habilitar a indentação automática
 set autoindent
@@ -37,7 +32,7 @@ nnoremap <silent> <C-F> :NERDTreeToggle<CR>
 nnoremap <F2> :set wrap!<CR>
 
 " Usa Zathura como visualizador de PDFs
-let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_method = 'evince'
 
 " Compilação automática de LaTeX
 let g:vimtex_compiler_method = 'latexmk'
@@ -65,6 +60,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'kien/ctrlp.vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'junegunn/fzf', { 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
 
     " Complemento, linters e formatadores
     Plug 'plasticboy/vim-markdown'
@@ -76,6 +73,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     Plug 'vim-jp/vim-cpp'
     Plug 'junegunn/gv.vim'
+    Plug 'lervag/vimtex'
+    Plug 'Valloric/YouCompleteMe'
+    Plug 'davidhalter/jedi-vim'
     Plug 'rip-rip/clang_complete'
     Plug 'yggdroot/indentline'
     Plug 'vhda/verilog_systemverilog.vim'
@@ -87,6 +87,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
 
+    Plug 'lervag/vimtex'
 
 call plug#end()
 
@@ -113,3 +114,4 @@ nnoremap <leader>k  <Plug>(coc-jump-type-definition)
 nnoremap <leader>gd <Plug>(coc-goto-definition)
 nnoremap <leader>gi <Plug>(coc-goto-implementation)
 nnoremap <leader>gr <Plug>(coc-goto-references)
+
