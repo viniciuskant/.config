@@ -1,4 +1,25 @@
 set number
+set cursorline
+
+" Estilo para a caixa de sugestão
+highlight CocMenuSel guibg=#3e4451 guifg=#abb2bf
+highlight CocPumBorder guibg=#282c34 guifg=#61afef
+
+" Cores para diferentes tipos de itens
+highlight CocHintSign guifg=#56b6c2
+highlight CocInfoSign guifg=#61afef
+highlight CocWarningSign guifg=#e5c07b
+highlight CocErrorSign guifg=#e06c75
+
+" Configuração dos sinais de diagnóstico do coc.nvim
+sign define CocErrorSign text=✗ texthl=CocErrorSign
+sign define CocWarningSign text=⚠ texthl=CocWarningSign
+sign define CocInfoSign text=ℹ texthl=CocInfoSign
+sign define CocHintSign text=➤ texthl=CocHintSign
+
+
+let g:coc_max_lines=10
+let g:coc_max_colums=80
 
 " Verificação ortográfica apenas para latex
 autocmd FileType tex setlocal spell spelllang=pt
@@ -27,9 +48,21 @@ set ruler
 " Ativar a barra de status
 set laststatus=2
 
+" Atalho quebra de linha
+map <C-z> :set wrap!<CR>
+
 " Alias
 nnoremap <silent> <C-F> :NERDTreeToggle<CR>
 nnoremap <F2> :set wrap!<CR>
+
+" Criar ou mudar para uma aba específica (1 a 9)
+for i in range(1, 9)
+  execute 'nnoremap <silent> <A-' . i . '> :tabnext ' . i . '<CR>'
+endfor
+
+" Atalho para criar uma nova aba
+nnoremap <silent> <A-t> :tabnew<CR>
+
 
 " Usa Zathura como visualizador de PDFs
 let g:vimtex_view_method = 'evince'

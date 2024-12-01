@@ -21,7 +21,7 @@ font pango:monospace 8
 exec --no-startup-id dex --autostart --environment i3
 # exec --no-startup-id feh --bg-fill /home/kant/.config/i3/lula-comunista-2.png
 # exec --no-startup-id feh --bg-fill /home/kant/.config/i3/cubo_derretido-1.jpg
-exec --no-startup-id feh --bg-fil /home/kant/.config/i3/lula.jpg
+exec feh --bg-fil /home/kant/.config/i3/tavares.png
 exec --no-startup-id xautolock -time 60 -locker "i3lock" -detectsleep
 exec --no-startup-id gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
 exec --no-startup-id gsettings set org.gnome.desktop.interface icon-theme "your-icon-theme"
@@ -29,6 +29,17 @@ exec_always picom &
 exec_always --no-startup-id ~/.myScripts/i3_pasta_unicamp.sh
 exec pkill -o i3bar
 exec_always --no-startup-id autotiling
+
+# types window
+for_window [class="gnome-system-monitor"] floating enable
+for_window [class="gnome-system-monitor"] move position 15 15
+for_window [class="gnome-system-monitor"] focus
+
+# Atalho para abrir ou mover o gnome-system-monitor
+bindsym $mod+g exec --no-startup-id "~/.config/i3/move_gnome_monitor.sh"
+
+# Automatizar o movimento quando o workspace muda
+exec_always --no-startup-id "while :; do ~/.config/i3/move_gnome_monitor.sh; sleep 1; done"
 
 
 # Bindings
@@ -42,7 +53,7 @@ bindsym $mod+Return exec alacritty
 bindsym Print exec maim -s | xclip -selection clipboard -t image/png
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+m exec shutdown now
-bindsym $mod+Shift+x exec i3lock -u --nofork -i ~/.config/i3/cubo_derretido-1.jpg
+bindsym $mod+Shift+x exec i3lock -u --nofork -i ~/.config/i3/tavares.pgn
 bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+Return exec code
 bindsym $mod+Shift+a exec arandr
@@ -97,7 +108,7 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r restart 
 bindsym $mod+Shift+e exec i3-msg exit
 bindsym $mod+r mode "resize"
 bindsym $mod+m mode "move"
@@ -153,7 +164,7 @@ gaps inner 8
 gaps outer 4
 #corner_radius 15
 for_window [class=".*"] border_radius 30
-smart_gaps on
+smart_gaps off
 floating_modifier $mod
 
 # Bar settings
