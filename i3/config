@@ -30,6 +30,11 @@ exec_always --no-startup-id ~/.myScripts/i3_pasta_unicamp.sh
 exec pkill -o i3bar
 exec_always --no-startup-id autotiling
 
+exec --no-startup-id i3-battery-popup -l 20 -n
+exec --no-startup-id esc_capslock
+exec --no-startup-id ~/.myScripts/change_wallpaper.sh -l 20 -n
+
+
 # types window
 for_window [class="gnome-system-monitor"] floating enable
 for_window [class="gnome-system-monitor"] move position 15 15
@@ -50,10 +55,11 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec brightnessctl s +1000
 bindsym XF86MonBrightnessDown exec brightnessctl s 1000-
 bindsym $mod+Return exec alacritty
-bindsym Print exec maim -s | xclip -selection clipboard -t image/png
+# bindsym Print exec maim -s | xclip -selection clipboard -t image/png
+bindsym Print exec gnome-screenshot -a -f /tmp/screenshot.png && xclip -selection clipboard -t image/png < /tmp/screenshot.png
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+m exec shutdown now
-bindsym $mod+Shift+x exec i3lock -u --nofork -i ~/.config/i3/tavares.pgn
+bindsym $mod+Shift+x exec i3lock -u --nofork -i ~/.config/i3/clovis.png
 bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+Return exec code
 bindsym $mod+Shift+a exec arandr
