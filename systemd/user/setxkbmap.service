@@ -1,0 +1,12 @@
+[Unit]
+Description=Set custom keyboard layout
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/setxkbmap -option caps:swapescape
+Restart=always
+Environment=DISPLAY=:0
+
+[Install]
+WantedBy=default.target
+
