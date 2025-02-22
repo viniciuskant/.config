@@ -20,8 +20,8 @@ font pango:monospace 8
 # Executions
 exec --no-startup-id dex --autostart --environment i3
 # exec --no-startup-id feh --bg-fill /home/kant/.config/i3/lula-comunista-2.png
-# exec --no-startup-id feh --bg-fill /home/kant/.config/i3/cubo_derretido-1.jpg
-exec feh --bg-fil /home/kant/.config/i3/tavares.png
+exec --no-startup-id feh --bg-fill /home/kant/.config/i3/cubo_derretido-1.jpg
+# exec feh --bg-fil /home/kant/.config/i3/tavares.png
 exec --no-startup-id xautolock -time 60 -locker "i3lock" -detectsleep
 exec --no-startup-id gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
 exec --no-startup-id gsettings set org.gnome.desktop.interface icon-theme "your-icon-theme"
@@ -32,8 +32,9 @@ exec_always --no-startup-id autotiling
 
 exec --no-startup-id i3-battery-popup -l 20 -n
 exec --no-startup-id esc_capslock
-exec --no-startup-id ~/.myScripts/change_wallpaper.sh -l 20 -n
+# exec --no-startup-id ~/.myScripts/change_wallpaper.sh -l 20 -n
 
+exec --no-startup-id setxkbmap -option caps:swapescape
 
 # types window
 for_window [class="gnome-system-monitor"] floating enable
@@ -124,6 +125,7 @@ bindsym $mod+p exec --no-startup-id "/home/kant/.myScripts/picom.sh"
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
+
 # Modes
 mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
@@ -188,6 +190,7 @@ bar {
                 urgent_workspace   #2f343a #900000 #ffffff
                 binding_mode       #2f343a #900000 #ffffff
         }
+        tray_output none
 }
 
 # Workspace outputs
